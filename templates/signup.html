@@ -16,7 +16,7 @@
         <a href="#Deals">Deals</a>
         <a href="/contact-us">Contact</a>
         <a href="/login">Login</a>
-        <a href="/signup">Sign Up</a>
+        <a href="/sign-up">Sign Up</a>
     </nav>
     <footer>
         <p>&copy; 2023 Starbucks. All rights reserved.</p>
@@ -27,29 +27,18 @@
 
     <div class="signup-container">
         <h2>Sign Up</h2>
-
-        <form action="{{ url_for('signup') }}" method="post">
+        <form id="registrationForm" onsubmit="registerUser(event)">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Username" required>
-
+            <input type="text" id="username" name="username" required>
+            <br>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-
-            <label for="confirm_password">Confirm Password:</label>
-            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
-
-            <button type="submit">Sign Up</button>
-
+            <input type="password" id="password" name="password" required>
+            <br>
+            <button type="submit">Register</button>
         </form>
-        <?php if (isset($success)): ?>
-            <p class="success-message"><?= $success ?></p>
-        <?php endif; ?>
-        <?php if (isset($error)): ?>
-            <p class="error-message"><?= $error ?></p>
-        <?php endif; ?>
-
+        <p id="message"></p>
     </div>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
