@@ -16,10 +16,10 @@ echo "COPY ./static /home/myapp/static/" >> tempdir/Dockerfile
 echo "COPY ./templates /home/myapp/templates/" >> tempdir/Dockerfile
 echo "COPY sample_app.py /home/myapp/" >> tempdir/Dockerfile
 
-echo "EXPOSE 5000" >> tempdir/Dockerfile
+echo "EXPOSE 3000" >> tempdir/Dockerfile
 echo "CMD python /home/myapp/sample_app.py" >> tempdir/Dockerfile
 
 cd tempdir
 docker build -t sampleapp .
-docker run -t -d -p 5000:5000 --name samplerunning sampleapp
+docker run -t -d -p 3000:3000 --name samplerunning sampleapp
 docker ps -a
