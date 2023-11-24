@@ -6,7 +6,6 @@
     <title>Starbucks Digital Coffee Club</title>
     <link rel="stylesheet" href="/static/style.css">
 
-
     <header>
         <h1>Starbucks Digital Coffee Club</h1>
     </header>
@@ -44,20 +43,26 @@
         <p>Discover exclusive coupons and deals to enhance your Starbucks experience.</p>
     </section>
     <div class="grid-container">
-        <!-- Coupon Section -->
-        <section id="Coupons">
-            <h3 style="text-align:center;"><a href="#Coupons">Coupons</a></h3>
-            <p>Get 20% off on your next coffee purchase.</p>
-            <p>Buy one, get one free on selected pastries.</p>
-            <p>Unlock a free upgrade to a larger size on your favorite drink.</p>
-        </section>
+        <!-- Container for Coupons and Deals -->
+        <div id="couponsDealsContainer" style="display: none;">
 
-        <!-- Deals Section -->
-        <section id="Deals">
-            <h3 style="text-align:center;"><a href="#Deals">Deals</a></h3>
-            <p>Weekend special: Enjoy a special coffee and pastry combo for $5.</p>
-            <p>Happy Hour: 50% off on all iced beverages from 3 PM to 5 PM.</p>
-        </section>
+            <!-- Coupon Section -->
+            <section id="Coupons">
+                <h3 style="text-align:center;"><a href="#Coupons">Coupons</a></h3>
+                <p>Get 20% off on your next coffee purchase.</p>
+                <p>Buy one, get one free on selected pastries.</p>
+                <p>Unlock a free upgrade to a larger size on your favorite drink.</p>
+            </section>
+
+            <!-- Deals Section -->
+            <section id="Deals">
+                <h3 style="text-align:center;"><a href="#Deals">Deals</a></h3>
+                <p>Weekend special: Enjoy a special coffee and pastry combo for $5.</p>
+                <p>Happy Hour: 50% off on all iced beverages from 3 PM to 5 PM.</p>
+            </section>
+            
+        </div>
+        
         <!-- Coffee Story Section -->
         <section id="CoffeeStory">
             <h3 style="text-align:center;"><a href="#CoffeeStory">Coffee Story</a></h3>
@@ -68,4 +73,17 @@
     </div>
 </body>
 <script src="script.js"></script>
+<script>
+    // Assuming this variable is set based on the initial login state
+    const isLoggedIn = false;
+
+    // Function to show or hide the Coupons and Deals container based on the login status
+    function toggleCouponsDealsContainer() {
+        const couponsDealsContainer = document.getElementById('couponsDealsContainer');
+        couponsDealsContainer.style.display = isLoggedIn ? 'block' : 'none';
+    }
+
+    // Call the toggleCouponsDealsContainer function when the page loads
+    toggleCouponsDealsContainer();
+</script>
 </html>

@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
     <header>
         <h1>Starbucks Digital Coffee Club</h1>
     </header>
+
     <nav style="text-align: center;">
         <a href="/">Home</a>
         <a href="#Coupons">Coupons</a>
@@ -18,12 +22,10 @@
         <a href="/login">Login</a>
         <a href="/sign-up">Sign Up</a>
     </nav>
+
     <footer>
         <p>&copy; 2023 Starbucks. All rights reserved.</p>
     </footer>
-</head>
-
-<body>
 
     <div class="login-container">
         <h2>Login</h2>
@@ -38,8 +40,16 @@
         </form>
         <p id="loginMessage"></p>
     </div>
+
     <script src="script.js"></script>
+    <script>
+        // Set the initial login state to false
+        const initialLoginState = false;
+
+        // Call the toggleLoggedInSection function when the page loads
+        toggleLoggedInSection(initialLoginState);
+    </script>
+
 </body>
 
 </html>
-

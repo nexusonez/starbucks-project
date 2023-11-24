@@ -28,24 +28,15 @@ function registerUser(event) {
     xhr.send(`username=${username}`);
 }
 
-// Function to show or hide the section based on the login status
-function toggleLoggedInSection(isLoggedIn) {
-    const couponsSection = document.getElementById('Coupons');
-    const dealsSection = document.getElementById('Deals');
-    const loginForm = document.getElementById('loginForm');
+// Assuming this variable is set based on the initial login state
+const isLoggedIn = false;
 
-    if (isLoggedIn) {
-        // If logged in, show the logged-in section and hide the login form
-        couponsSection.style.display = 'block';
-        dealsSection.style.display = 'block';
-        loginForm.style.display = 'none';
-    } else {
-        // If not logged in, hide the logged-in section and show the login form
-        couponsSection.style.display = 'none';
-        dealsSection.style.display = 'none';
-        loginForm.style.display = 'block';
-    }
+// Function to show or hide the Coupons and Deals container based on the login status
+function toggleCouponsDealsContainer() {
+    const couponsDealsContainer = document.getElementById('couponsDealsContainer');
+    couponsDealsContainer.style.display = isLoggedIn ? 'block' : 'none';
 }
+
 // Function to handle login
 function loginUser(event) {
     event.preventDefault();
@@ -80,7 +71,6 @@ function loginUser(event) {
     xhr.send(`username=${username}&password=${password}`);
 }
 
-// Call the toggleLoggedInSection function when the page loads
-toggleLoggedInSection(/* Set this based on the initial login state */);
+
 
 
