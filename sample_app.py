@@ -10,9 +10,14 @@ def main():
 def contact():
     return render_template("contact.html")
 
-@app.route("/login")
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    if request.method == 'POST':
+        # Handle the login logic here
+        return 'Login successful'  # Replace with your actual response
+    else:
+        # Render the login form
+        return render_template('login.html')
 
 @app.route("/sign-up")
 def signup():
