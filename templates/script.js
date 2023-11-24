@@ -31,10 +31,26 @@ function registerUser(event) {
 // Assuming this variable is set based on the initial login state
 const isLoggedIn = false;
 
-// Function to show or hide the Coupons and Deals container based on the login status
-function toggleCouponsDealsContainer() {
-    const couponsDealsContainer = document.getElementById('couponsDealsContainer');
-    couponsDealsContainer.style.display = isLoggedIn ? 'block' : 'none';
+// // Function to show or hide the Coupons and Deals container based on the login status
+// function toggleCouponsDealsContainer() {
+//     const couponsDealsContainer = document.getElementById('couponsDealsContainer');
+//     couponsDealsContainer.style.display = isLoggedIn ? 'block' : 'none';
+// }
+
+// Function to show or hide the section based on the login status
+function toggleLoggedInSection() {
+    const couponDealSection = document.getElementById('couponsDealsContainer');
+    const loginForm = document.getElementById('loginForm');
+
+    if (isLoggedIn) {
+        // If logged in, show the logged-in section and hide the login form
+        couponDealSection.style.display = 'block';
+        loginForm.style.display = 'none';
+    } else {
+        // If not logged in, hide the logged-in section and show the login form
+        couponDealSection.style.display = 'none';
+        loginForm.style.display = 'block';
+    }
 }
 
 // Function to handle login
