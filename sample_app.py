@@ -19,7 +19,7 @@ def signup():
     return render_template("signup.html")
 
 @app.route("/coffeestory")
-def signup():
+def coffeestory():
     return render_template("coffeestory.html")
 
 if __name__ == "__main__":
