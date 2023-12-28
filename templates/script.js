@@ -48,20 +48,18 @@ function registerUser(event) {
 const isLoggedIn = false;
 
 // Function to show or hide the section based on the login status
-function toggleLoggedInSection() {
-    const couponsContainer = document.getElementById('Coupons');
-    const dealsContainer = document.getElementById('Deals');
+function toggleLoggedInSection(isLoggedIn) {
+    const couponsDealsContainer = document.getElementById('couponsDealsContainer');
+
     const loginForm = document.getElementById('loginForm');
 
     if (isLoggedIn) {
         // If logged in, show the logged-in section and hide the login form
-        couponsContainer.style.display = 'block';
-        dealsContainer.style.display = 'block';
+        couponsDealsContainer.style.display = 'block';
         loginForm.style.display = 'none';
     } else {
         // If not logged in, hide the logged-in section and show the login form
-        couponsContainer.style.display = 'none';
-        dealsContainer.style.display = 'none';
+        couponsDealsContainer.style.display = 'none';
         loginForm.style.display = 'block';
     }
 }
