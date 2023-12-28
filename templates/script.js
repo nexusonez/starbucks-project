@@ -16,7 +16,23 @@ function registerUser(event) {
                     document.getElementById('message').innerHTML = 'Username already registered. Please choose a different one.';
                 } else {
                     document.getElementById('message').innerHTML = 'Registration successful!';
-                    // You can proceed to store the username and password in the CSV file or a database.
+                    // You can proceed to store the username and password in the CSV file.
+                    // Send another request to store user data in the CSV file
+                    const storeUserDataXhr = new XMLHttpRequest();
+                    storeUserDataXhr.open('POST', 'store_user_data.php', true);
+                    storeUserDataXhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    storeUserDataXhr.onreadystatechange = function() {
+                        if (storeUserDataXhr.readyState === XMLHttpRequest.DONE) {
+                            if (storeUserDataXhr.status === 200) {
+                                console.log('User data has been written to the CSV file.');
+                            } else {
+                                console.error('Error storing user data:', storeUserDataXhr.status, storeUserDataXhr.statusText);
+                            }
+                        }
+                    };
+                    
+                    // Send the username and password to the server for CSV file storage
+                    storeUserDataXhr.send(`username=${username}&password=${password}`);
                 }
             } else {
                 console.error('Error checking username:', xhr.status, xhr.statusText);
@@ -31,24 +47,21 @@ function registerUser(event) {
 // Assuming this variable is set based on the initial login state
 const isLoggedIn = false;
 
-// // Function to show or hide the Coupons and Deals container based on the login status
-// function toggleCouponsDealsContainer() {
-//     const couponsDealsContainer = document.getElementById('couponsDealsContainer');
-//     couponsDealsContainer.style.display = isLoggedIn ? 'block' : 'none';
-// }
-
 // Function to show or hide the section based on the login status
 function toggleLoggedInSection() {
-    const couponDealSection = document.getElementById('couponsDealsContainer');
+    const couponsContainer = document.getElementById('Coupons');
+    const dealsContainer = document.getElementById('Deals');
     const loginForm = document.getElementById('loginForm');
 
     if (isLoggedIn) {
         // If logged in, show the logged-in section and hide the login form
-        couponDealSection.style.display = 'block';
+        couponsContainer.style.display = 'block';
+        dealsContainer.style.display = 'block';
         loginForm.style.display = 'none';
     } else {
         // If not logged in, hide the logged-in section and show the login form
-        couponDealSection.style.display = 'none';
+        couponsContainer.style.display = 'none';
+        dealsContainer.style.display = 'none';
         loginForm.style.display = 'block';
     }
 }
